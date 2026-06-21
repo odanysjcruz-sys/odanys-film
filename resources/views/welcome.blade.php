@@ -519,7 +519,7 @@
                         </div>
                         <div class="contact-detail-item">
                             <span class="contact-detail-label">Based In</span>
-                            <span class="contact-detail-value">United Sstates NY</span>
+                            <span class="contact-detail-value">United States, NY</span>
                         </div>
                         <div class="contact-detail-item">
                             <span class="contact-detail-label">Response Time</span>

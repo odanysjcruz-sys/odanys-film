@@ -73,15 +73,15 @@ if (filmRevealFrames.length) {
     const revealObs = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const delay = parseFloat(entry.target.dataset.filmReveal) || 0;
-                entry.target.style.transitionDelay = `${delay}s`;
-                entry.target.classList.add('is-revealed');
-                // Clear delay after animation so hover transitions stay snappy
-                setTimeout(() => {
-                    entry.target.style.transitionDelay = '';
-                }, (delay + 0.9) * 1000);
-                revealObs.unobserve(entry.target);
+                if (entry.isIntersecting) {
+                    const delay = parseFloat(entry.target.dataset.filmReveal) || 0;
+                    entry.target.style.transitionDelay = `${delay}s`;
+                    entry.target.classList.add('is-revealed');
+                    setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.9) * 1000);
+                } else {
+                    entry.target.style.transitionDelay = '0s';
+                    entry.target.classList.remove('is-revealed');
+                }
             });
         },
         { threshold: 0.1 }
@@ -165,6 +165,22 @@ if (filmParallaxWraps.length) {
     updateFilmParallax();
 }
 
+// Services: scroll reveal
+const servicesSection = document.querySelector('.services-section');
+if (servicesSection) {
+    const srvRevealObs = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                servicesSection.classList.add('in-view');
+            } else {
+                servicesSection.classList.remove('in-view');
+            }
+        },
+        { threshold: 0.1 }
+    );
+    srvRevealObs.observe(servicesSection);
+}
+
 // Services: split-screen tab switcher
 const srvTabsEl = document.querySelector('.srv-tabs');
 if (srvTabsEl) {
@@ -232,7 +248,8 @@ if (brandsSection) {
         ([entry]) => {
             if (entry.isIntersecting) {
                 brandsSection.classList.add('in-view');
-                brdObs.unobserve(brandsSection);
+            } else {
+                brandsSection.classList.remove('in-view');
             }
         },
         { threshold: 0.1 }
@@ -246,12 +263,15 @@ if (brandsItems.length) {
     const brdItemObs = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const delay = parseFloat(entry.target.dataset.brandsDelay) || 0;
-                entry.target.style.transitionDelay = `${delay}s`;
-                entry.target.classList.add('is-revealed');
-                setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.7) * 1000);
-                brdItemObs.unobserve(entry.target);
+                if (entry.isIntersecting) {
+                    const delay = parseFloat(entry.target.dataset.brandsDelay) || 0;
+                    entry.target.style.transitionDelay = `${delay}s`;
+                    entry.target.classList.add('is-revealed');
+                    setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.7) * 1000);
+                } else {
+                    entry.target.style.transitionDelay = '0s';
+                    entry.target.classList.remove('is-revealed');
+                }
             });
         },
         { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
@@ -265,17 +285,31 @@ if (tstCards.length) {
     const tstObs = new IntersectionObserver(
         (entries) => {
             entries.forEach(entry => {
-                if (!entry.isIntersecting) return;
-                const delay = parseFloat(entry.target.dataset.tstDelay) || 0;
-                entry.target.style.transitionDelay = `${delay}s`;
-                entry.target.classList.add('is-revealed');
-                setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.85) * 1000);
-                tstObs.unobserve(entry.target);
+                if (entry.isIntersecting) {
+                    const delay = parseFloat(entry.target.dataset.tstDelay) || 0;
+                    entry.target.style.transitionDelay = `${delay}s`;
+                    entry.target.classList.add('is-revealed');
+                    setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.85) * 1000);
+                } else {
+                    entry.target.style.transitionDelay = '0s';
+                    entry.target.classList.remove('is-revealed');
+                }
             });
         },
         { threshold: 0.12 }
     );
     tstCards.forEach(el => tstObs.observe(el));
+}
+
+// Contact section: scroll reveal
+const contactSection = document.querySelector('.contact-section');
+if (contactSection) {
+    new IntersectionObserver(
+        ([entry]) => {
+            contactSection.classList.toggle('in-view', entry.isIntersecting);
+        },
+        { threshold: 0.08 }
+    ).observe(contactSection);
 }
 
 // About section: IntersectionObserver reveal + parallax
@@ -287,7 +321,8 @@ if (aboutSection) {
         ([entry]) => {
             if (entry.isIntersecting) {
                 aboutSection.classList.add('in-view');
-                observer.unobserve(aboutSection);
+            } else {
+                aboutSection.classList.remove('in-view');
             }
         },
         { threshold: 0.15 }

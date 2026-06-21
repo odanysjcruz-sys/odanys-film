@@ -1337,7 +1337,9 @@ body {
     text-align: left;
     position: relative;
     overflow: hidden;
-    transition: background 0.25s ease;
+    opacity: 0;
+    transform: translateX(-24px);
+    transition: background 0.25s ease, opacity 0.52s ease, transform 0.52s cubic-bezier(0.16,1,0.3,1);
 }
 
 .srv-tab:last-child {
@@ -1407,6 +1409,9 @@ body {
 /* ── Pane container ── */
 .srv-panes {
     position: relative;
+    opacity: 0;
+    transform: translateX(28px);
+    transition: opacity 0.65s ease 0.1s, transform 0.65s cubic-bezier(0.16,1,0.3,1) 0.1s;
 }
 
 /* Inactive panes: absolutely positioned, don't affect layout height */
@@ -1641,6 +1646,28 @@ body {
     color: var(--accent);
     border-color: rgba(199, 164, 106, 0.55);
     background: rgba(199, 164, 106, 0.08);
+}
+
+/* ── Services: scroll reveal ── */
+.srv-sidebar-hd {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.6s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
+}
+
+.services-section.in-view .srv-sidebar-hd {
+    opacity: 1;
+    transform: none;
+}
+
+.services-section.in-view .srv-tab:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.08s; }
+.services-section.in-view .srv-tab:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.16s; }
+.services-section.in-view .srv-tab:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.25s; }
+.services-section.in-view .srv-tab:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.34s; }
+
+.services-section.in-view .srv-panes {
+    opacity: 1;
+    transform: none;
 }
 
 /* ── Mobile ── */
@@ -1936,6 +1963,27 @@ body {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
 }
+
+/* ── Contact: scroll reveal ── */
+.contact-section .section-eyebrow,
+.contact-section .section-heading,
+.contact-section .section-divider,
+.contact-intro,
+.contact-detail-item,
+.contact-form {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.6s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
+}
+
+.contact-section.in-view .section-eyebrow  { opacity: 1; transform: none; }
+.contact-section.in-view .section-heading  { opacity: 1; transform: none; transition-delay: 0.08s; }
+.contact-section.in-view .section-divider  { opacity: 1; transform: none; transition-delay: 0.14s; }
+.contact-section.in-view .contact-intro    { opacity: 1; transform: none; transition-delay: 0.2s; }
+.contact-section.in-view .contact-detail-item:nth-child(1) { opacity: 1; transform: none; transition-delay: 0.28s; }
+.contact-section.in-view .contact-detail-item:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.36s; }
+.contact-section.in-view .contact-detail-item:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.44s; }
+.contact-section.in-view .contact-form     { opacity: 1; transform: none; transition-delay: 0.12s; }
 
 /* ── Success / Error banners ─────────────────────────── */
 .contact-success {
