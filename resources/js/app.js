@@ -1,5 +1,16 @@
 import 'bootstrap';
 
+// Theme toggle — dark / light
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const current = document.documentElement.dataset.theme || 'dark';
+        const next    = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        localStorage.setItem('om-theme', next);
+    });
+}
+
 // Navbar: glass on scroll + active section tracking + mobile toggle
 const siteNav = document.getElementById('siteNav');
 
@@ -218,6 +229,59 @@ if (srvSection) {
 
     setSrvActive(0);
     onSrvScroll();
+}
+
+// Brands section: reveal header on scroll into view
+const brandsSection = document.querySelector('.brands-section');
+if (brandsSection) {
+    const brdObs = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.isIntersecting) {
+                brandsSection.classList.add('in-view');
+                brdObs.unobserve(brandsSection);
+            }
+        },
+        { threshold: 0.1 }
+    );
+    brdObs.observe(brandsSection);
+}
+
+// Brands list: staggered row reveal
+const brandsItems = document.querySelectorAll('[data-brands-reveal]');
+if (brandsItems.length) {
+    const brdItemObs = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const delay = parseFloat(entry.target.dataset.brandsDelay) || 0;
+                entry.target.style.transitionDelay = `${delay}s`;
+                entry.target.classList.add('is-revealed');
+                setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.7) * 1000);
+                brdItemObs.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+    brandsItems.forEach(el => brdItemObs.observe(el));
+}
+
+// Testimonials: scroll reveal with staggered delay
+const tstCards = document.querySelectorAll('[data-tst-reveal]');
+if (tstCards.length) {
+    const tstObs = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                const delay = parseFloat(entry.target.dataset.tstDelay) || 0;
+                entry.target.style.transitionDelay = `${delay}s`;
+                entry.target.classList.add('is-revealed');
+                setTimeout(() => { entry.target.style.transitionDelay = ''; }, (delay + 0.85) * 1000);
+                tstObs.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.12 }
+    );
+    tstCards.forEach(el => tstObs.observe(el));
 }
 
 // About section: IntersectionObserver reveal + parallax

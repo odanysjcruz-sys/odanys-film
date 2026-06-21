@@ -112,6 +112,70 @@
     </section>
 
 
+    {{-- ── Brands & Projects ───────────────────────────── --}}
+    <section class="brands-section">
+        <div class="container">
+
+            <div class="brands-header">
+                <p class="section-eyebrow">Selected Work</p>
+                <h2 class="section-heading">Brands &amp; Projects</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <ul class="brands-list" role="list">
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0">
+                    <span class="brands-num" aria-hidden="true">01</span>
+                    <span class="brands-name">Nike</span>
+                    <span class="brands-tag">Film</span>
+                </li>
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0.07">
+                    <span class="brands-num" aria-hidden="true">02</span>
+                    <span class="brands-name">DJI</span>
+                    <span class="brands-tag">Visual</span>
+                </li>
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0.14">
+                    <span class="brands-num" aria-hidden="true">03</span>
+                    <span class="brands-name">New Era</span>
+                    <span class="brands-tag">Direction</span>
+                </li>
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0.21">
+                    <span class="brands-num" aria-hidden="true">04</span>
+                    <span class="brands-name">Grooming by Harry</span>
+                    <span class="brands-tag">Film</span>
+                </li>
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0.28">
+                    <span class="brands-num" aria-hidden="true">05</span>
+                    <span class="brands-name">Momo Tattoo Studio</span>
+                    <span class="brands-tag">Visual</span>
+                </li>
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0.35">
+                    <span class="brands-num" aria-hidden="true">06</span>
+                    <span class="brands-name">The Merkaba Method</span>
+                    <span class="brands-tag">Direction</span>
+                </li>
+
+                <li class="brands-item" data-brands-reveal data-brands-delay="0.42">
+                    <span class="brands-num" aria-hidden="true">07</span>
+                    <span class="brands-name">Caribbean Baseball Academy</span>
+                    <span class="brands-tag">Film</span>
+                </li>
+
+            </ul>
+
+            <p class="brands-note">
+                A selection of commercial work, creative collaborations, and independent concept projects.
+            </p>
+
+        </div>
+    </section>
+
+
     {{-- ── Selected Work ────────────────────────────────── --}}
     <section id="work" class="work-section">
         <div class="container">
@@ -235,7 +299,7 @@
 
                 {{-- 01 Music Videos --}}
                 <div class="srv-panel is-active" data-srv-index="0" data-num="01">
-                    <div class="srv-panel-bg" style="background: linear-gradient(155deg, #130428 0%, #09021a 45%, #05060a 100%);"></div>
+                    <div class="srv-panel-bg" style="background-image: url('/images/srv-music-video.png'); background-size: cover; background-position: center top;"></div>
                     <div class="srv-panel-inner">
                         <div class="srv-panel-top">
                             <span class="srv-panel-num">01</span>
@@ -255,7 +319,7 @@
 
                 {{-- 02 Brand Films --}}
                 <div class="srv-panel" data-srv-index="1" data-num="02">
-                    <div class="srv-panel-bg" style="background: linear-gradient(155deg, #021326 0%, #010c1c 45%, #05060a 100%);"></div>
+                    <div class="srv-panel-bg" style="background-image: url('/images/srv-brand-films.jpg'); background-size: cover; background-position: center;"></div>
                     <div class="srv-panel-inner">
                         <div class="srv-panel-top">
                             <span class="srv-panel-num">02</span>
@@ -295,7 +359,7 @@
 
                 {{-- 04 Creative Direction --}}
                 <div class="srv-panel" data-srv-index="3" data-num="04">
-                    <div class="srv-panel-bg" style="background: linear-gradient(155deg, #0b0524 0%, #06031a 45%, #05060a 100%);"></div>
+                    <div class="srv-panel-bg" style="background-image: url('/images/srv-creative-direction.png'); background-size: cover; background-position: center top;"></div>
                     <div class="srv-panel-inner">
                         <div class="srv-panel-top">
                             <span class="srv-panel-num">04</span>
@@ -325,6 +389,66 @@
 
         </div>{{-- /.srv-stage --}}
 
+    </section>
+
+
+    {{-- ── Testimonials ─────────────────────────────────── --}}
+    <section id="testimonials" class="tst-section">
+        <div class="tst-glow" aria-hidden="true"></div>
+        <div class="container">
+
+            <div class="tst-header">
+                <p class="section-eyebrow">What They Say</p>
+                <h2 class="section-heading">Client Words</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="tst-grid">
+
+                <div class="tst-card" data-tst-reveal data-tst-delay="0">
+                    <span class="tst-c tst-c-tl" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-tr" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-bl" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-br" aria-hidden="true"></span>
+                    <div class="tst-mark" aria-hidden="true">"</div>
+                    <p class="tst-quote">Working with Odanys was a complete game-changer. He understood the vision instantly and captured every bit of energy we wanted on screen. The final cut blew us away.</p>
+                    <div class="tst-meta">
+                        <span class="tst-name">Yuyo</span>
+                        <span class="tst-sep" aria-hidden="true">—</span>
+                        <span class="tst-role">Artist &middot; Music Video</span>
+                    </div>
+                </div>
+
+                <div class="tst-card" data-tst-reveal data-tst-delay="0.12">
+                    <span class="tst-c tst-c-tl" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-tr" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-bl" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-br" aria-hidden="true"></span>
+                    <div class="tst-mark" aria-hidden="true">"</div>
+                    <p class="tst-quote">The level of professionalism and creative vision Odanys brings to every set is unmatched. He doesn't just direct — he elevates. Pacto came out better than anything we imagined.</p>
+                    <div class="tst-meta">
+                        <span class="tst-name">Makleen</span>
+                        <span class="tst-sep" aria-hidden="true">—</span>
+                        <span class="tst-role">Artist &middot; Music Video</span>
+                    </div>
+                </div>
+
+                <div class="tst-card" data-tst-reveal data-tst-delay="0.24">
+                    <span class="tst-c tst-c-tl" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-tr" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-bl" aria-hidden="true"></span>
+                    <span class="tst-c tst-c-br" aria-hidden="true"></span>
+                    <div class="tst-mark" aria-hidden="true">"</div>
+                    <p class="tst-quote">Odanys has an eye for detail that truly sets him apart. From the first conversation to final delivery, every step felt intentional. The result was pure cinema — exactly what our brand needed.</p>
+                    <div class="tst-meta">
+                        <span class="tst-name">Client Name</span>
+                        <span class="tst-sep" aria-hidden="true">—</span>
+                        <span class="tst-role">Brand &middot; Creative Direction</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
 
