@@ -114,65 +114,35 @@
 
     {{-- ── Brands & Projects ───────────────────────────── --}}
     <section class="brands-section">
-        <div class="container">
 
-            <div class="brands-header">
-                <p class="section-eyebrow">Selected Work</p>
-                <h2 class="section-heading">Brands &amp; Projects</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <ul class="brands-list" role="list">
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0">
-                    <span class="brands-num" aria-hidden="true">01</span>
-                    <span class="brands-name">Nike</span>
-                    <span class="brands-tag">Film</span>
-                </li>
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0.07">
-                    <span class="brands-num" aria-hidden="true">02</span>
-                    <span class="brands-name">DJI</span>
-                    <span class="brands-tag">Visual</span>
-                </li>
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0.14">
-                    <span class="brands-num" aria-hidden="true">03</span>
-                    <span class="brands-name">New Era</span>
-                    <span class="brands-tag">Direction</span>
-                </li>
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0.21">
-                    <span class="brands-num" aria-hidden="true">04</span>
-                    <span class="brands-name">Grooming by Harry</span>
-                    <span class="brands-tag">Film</span>
-                </li>
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0.28">
-                    <span class="brands-num" aria-hidden="true">05</span>
-                    <span class="brands-name">Momo Tattoo Studio</span>
-                    <span class="brands-tag">Visual</span>
-                </li>
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0.35">
-                    <span class="brands-num" aria-hidden="true">06</span>
-                    <span class="brands-name">The Merkaba Method</span>
-                    <span class="brands-tag">Direction</span>
-                </li>
-
-                <li class="brands-item" data-brands-reveal data-brands-delay="0.42">
-                    <span class="brands-num" aria-hidden="true">07</span>
-                    <span class="brands-name">Caribbean Baseball Academy</span>
-                    <span class="brands-tag">Film</span>
-                </li>
-
-            </ul>
-
-            <p class="brands-note">
-                A selection of commercial work, creative collaborations, and independent concept projects.
-            </p>
-
+        <div class="brands-header container">
+            <p class="section-eyebrow">Selected Work</p>
+            <h2 class="section-heading">Brands &amp; Projects</h2>
+            <div class="section-divider"></div>
         </div>
+
+        <div class="brands-ticker">
+            <div class="brands-track">
+                <div class="brands-logo-wrap">
+                    <img src="/images/brand-groom-harry.png" alt="Groom by Harry" class="brands-logo">
+                </div>
+                <div class="brands-logo-wrap">
+                    <img src="/images/brand-merkaba.png" alt="The Merkaba Method" class="brands-logo">
+                </div>
+                <div class="brands-logo-wrap">
+                    <img src="/images/brand-momo.png" alt="Momo Tattoo Studio" class="brands-logo">
+                </div>
+                <div class="brands-logo-wrap">
+                    <img src="/images/brand-nk.png" alt="NK" class="brands-logo">
+                </div>
+            </div>
+        </div>
+
+
+        <p class="brands-note container">
+            A selection of commercial work, creative collaborations, and independent concept projects.
+        </p>
+
     </section>
 
 
@@ -284,111 +254,187 @@
 
     {{-- ── Services ─────────────────────────────────────── --}}
     <section id="services" class="services-section">
+        <div class="services-inner">
 
-        {{-- Sticky full-viewport stage --}}
-        <div class="srv-stage">
-
-            {{-- Section header — floats above panels --}}
-            <div class="srv-header">
-                <p class="section-eyebrow">What I Do</p>
-                <h2 class="srv-heading">Services</h2>
+            {{-- Left: sidebar with header + tab list --}}
+            <div class="srv-sidebar">
+                <div class="srv-sidebar-hd">
+                    <p class="section-eyebrow">What I Do</p>
+                    <h2 class="srv-heading">Services</h2>
+                </div>
+                <nav class="srv-tabs" role="tablist" aria-label="Services navigation">
+                    <button class="srv-tab is-active" role="tab" aria-selected="true"  data-srv-tab="0">
+                        <span class="srv-tab-num">01</span>
+                        <span class="srv-tab-name">Creative Direction</span>
+                        <span class="srv-tab-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button class="srv-tab" role="tab" aria-selected="false" data-srv-tab="1">
+                        <span class="srv-tab-num">02</span>
+                        <span class="srv-tab-name">Music Videos</span>
+                        <span class="srv-tab-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button class="srv-tab" role="tab" aria-selected="false" data-srv-tab="2">
+                        <span class="srv-tab-num">03</span>
+                        <span class="srv-tab-name">Brand Films</span>
+                        <span class="srv-tab-arrow" aria-hidden="true">→</span>
+                    </button>
+                    <button class="srv-tab" role="tab" aria-selected="false" data-srv-tab="3" style="display:none">
+                        <span class="srv-tab-num">04</span>
+                        <span class="srv-tab-name">Social Content</span>
+                        <span class="srv-tab-arrow" aria-hidden="true">→</span>
+                    </button>
+                </nav>
             </div>
 
-            {{-- Horizontal panel accordion --}}
-            <div class="srv-panels">
+            {{-- Right: stacked content panes --}}
+            <div class="srv-panes">
 
-                {{-- 01 Music Videos --}}
-                <div class="srv-panel is-active" data-srv-index="0" data-num="01">
-                    <div class="srv-panel-bg" style="background-image: url('/images/srv-music-video.png'); background-size: cover; background-position: center top;"></div>
-                    <div class="srv-panel-inner">
-                        <div class="srv-panel-top">
-                            <span class="srv-panel-num">01</span>
-                            <span class="srv-panel-eyebrow">Music Videos</span>
+                {{-- 01 Creative Direction --}}
+                <div class="srv-pane is-active" role="tabpanel" data-srv-pane="0">
+                    <div class="srv-pane-media">
+                        <div class="srv-carousel">
+                            <div class="srv-slide is-active">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-1.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-2.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-3.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-4.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-5.png');"></div>
+                            </div>
                         </div>
-                        <div class="srv-panel-body">
-                            <h3 class="srv-panel-title">Music<br>Videos</h3>
-                            <p class="srv-panel-desc">High-impact visuals that amplify your sound. From concept to final cut, every frame is crafted to command attention and leave a lasting impression.</p>
-                            <ul class="srv-panel-features">
-                                <li>Concept Development</li>
-                                <li>On-Set Direction</li>
-                                <li>Color Grading</li>
-                            </ul>
-                        </div>
+                        <div class="srv-pane-overlay" aria-hidden="true"></div>
+                        <button class="srv-car-btn srv-car-btn--prev" aria-label="Previous photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="srv-car-btn srv-car-btn--next" aria-label="Next photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="srv-car-dots"></div>
+                    </div>
+                    <div class="srv-pane-body">
+                        <h3 class="srv-pane-title">Creative Direction</h3>
+                        <p class="srv-pane-desc">Full-spectrum creative vision: moodboards, shot lists, and on-set direction. Every detail shaped so the look, feel, and story align perfectly.</p>
+                        <ul class="srv-pane-features">
+                            <li>Visual Identity</li>
+                            <li>Moodboard &amp; Styling</li>
+                            <li>Art Direction</li>
+                        </ul>
                     </div>
                 </div>
 
-                {{-- 02 Brand Films --}}
-                <div class="srv-panel" data-srv-index="1" data-num="02">
-                    <div class="srv-panel-bg" style="background-image: url('/images/srv-brand-films.jpg'); background-size: cover; background-position: center;"></div>
-                    <div class="srv-panel-inner">
-                        <div class="srv-panel-top">
-                            <span class="srv-panel-num">02</span>
-                            <span class="srv-panel-eyebrow">Brand Films</span>
+                {{-- 02 Music Videos --}}
+                <div class="srv-pane" role="tabpanel" data-srv-pane="1">
+                    <div class="srv-pane-media">
+                        <div class="srv-carousel">
+                            <div class="srv-slide is-active">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-1.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-2.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-3.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-4.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-5.png');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-6.png');"></div>
+                            </div>
                         </div>
-                        <div class="srv-panel-body">
-                            <h3 class="srv-panel-title">Brand<br>Films</h3>
-                            <p class="srv-panel-desc">Cinematic short films that tell your brand's story with depth and clarity. Visually rich narratives that build trust and elevate your identity.</p>
-                            <ul class="srv-panel-features">
-                                <li>Brand Strategy</li>
-                                <li>Narrative Scripting</li>
-                                <li>Post-Production</li>
-                            </ul>
-                        </div>
+                        <div class="srv-pane-overlay" aria-hidden="true"></div>
+                        <button class="srv-car-btn srv-car-btn--prev" aria-label="Previous photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="srv-car-btn srv-car-btn--next" aria-label="Next photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="srv-car-dots"></div>
+                    </div>
+                    <div class="srv-pane-body">
+                        <h3 class="srv-pane-title">Music Videos</h3>
+                        <p class="srv-pane-desc">High-impact visuals that amplify your sound. From concept to final cut, every frame is crafted to command attention and leave a lasting impression.</p>
+                        <ul class="srv-pane-features">
+                            <li>Concept Development</li>
+                            <li>On-Set Direction</li>
+                            <li>Color Grading</li>
+                        </ul>
                     </div>
                 </div>
 
-                {{-- 03 Social Media Content --}}
-                <div class="srv-panel" data-srv-index="2" data-num="03">
-                    <div class="srv-panel-bg" style="background: linear-gradient(155deg, #011420 0%, #010e18 45%, #05060a 100%);"></div>
-                    <div class="srv-panel-inner">
-                        <div class="srv-panel-top">
-                            <span class="srv-panel-num">03</span>
-                            <span class="srv-panel-eyebrow">Social Content</span>
+                {{-- 03 Brand Films --}}
+                <div class="srv-pane srv-pane--square" role="tabpanel" data-srv-pane="2">
+                    <div class="srv-pane-media srv-pane-media--square">
+                        <div class="srv-carousel">
+                            <div class="srv-slide is-active">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-1.jpg');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-2.jpg');"></div>
+                            </div>
+                            <div class="srv-slide">
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-3.jpg');"></div>
+                            </div>
                         </div>
-                        <div class="srv-panel-body">
-                            <h3 class="srv-panel-title">Social<br>Content</h3>
-                            <p class="srv-panel-desc">Scroll-stopping reels, teasers, and campaign visuals engineered to perform. Built for the digital world, never at the cost of cinematic quality.</p>
-                            <ul class="srv-panel-features">
-                                <li>Short-Form Video</li>
-                                <li>Campaign Shoots</li>
-                                <li>Platform Strategy</li>
-                            </ul>
-                        </div>
+                        <div class="srv-pane-overlay" aria-hidden="true"></div>
+                        <button class="srv-car-btn srv-car-btn--prev" aria-label="Previous photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="srv-car-btn srv-car-btn--next" aria-label="Next photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="srv-car-dots"></div>
+                    </div>
+                    <div class="srv-pane-body">
+                        <h3 class="srv-pane-title">Brand Films</h3>
+                        <p class="srv-pane-desc">Cinematic short films that tell your brand's story with depth and clarity. Visually rich narratives that build trust and elevate your identity.</p>
+                        <ul class="srv-pane-features">
+                            <li>Brand Strategy</li>
+                            <li>Narrative Scripting</li>
+                            <li>Post-Production</li>
+                        </ul>
                     </div>
                 </div>
 
-                {{-- 04 Creative Direction --}}
-                <div class="srv-panel" data-srv-index="3" data-num="04">
-                    <div class="srv-panel-bg" style="background-image: url('/images/srv-creative-direction.png'); background-size: cover; background-position: center top;"></div>
-                    <div class="srv-panel-inner">
-                        <div class="srv-panel-top">
-                            <span class="srv-panel-num">04</span>
-                            <span class="srv-panel-eyebrow">Creative Direction</span>
+                {{-- 04 Social Content --}}
+                <div class="srv-pane" role="tabpanel" data-srv-pane="3" style="display:none">
+                    <div class="srv-pane-media srv-pane-media--gradient">
+                        <div class="srv-carousel">
+                            {{-- slides go here when photos are ready --}}
                         </div>
-                        <div class="srv-panel-body">
-                            <h3 class="srv-panel-title">Creative<br>Direction</h3>
-                            <p class="srv-panel-desc">Full-spectrum creative vision: moodboards, shot lists, and on-set direction. Every detail shaped so the look, feel, and story align perfectly.</p>
-                            <ul class="srv-panel-features">
-                                <li>Visual Identity</li>
-                                <li>Moodboard &amp; Styling</li>
-                                <li>Art Direction</li>
-                            </ul>
-                        </div>
+                        <div class="srv-pane-overlay" aria-hidden="true"></div>
+                        <button class="srv-car-btn srv-car-btn--prev" aria-label="Previous photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <button class="srv-car-btn srv-car-btn--next" aria-label="Next photo">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <div class="srv-car-dots"></div>
+                    </div>
+                    <div class="srv-pane-body">
+                        <h3 class="srv-pane-title">Social Content</h3>
+                        <p class="srv-pane-desc">Scroll-stopping reels, teasers, and campaign visuals engineered to perform. Built for the digital world, never at the cost of cinematic quality.</p>
+                        <ul class="srv-pane-features">
+                            <li>Short-Form Video</li>
+                            <li>Campaign Shoots</li>
+                            <li>Platform Strategy</li>
+                        </ul>
                     </div>
                 </div>
 
-            </div>{{-- /.srv-panels --}}
+            </div>{{-- /.srv-panes --}}
 
-            {{-- Navigation dots --}}
-            <nav class="srv-nav" aria-label="Services navigation">
-                <button class="srv-nav-dot is-active" data-srv-target="0" aria-label="Music Videos"></button>
-                <button class="srv-nav-dot" data-srv-target="1" aria-label="Brand Films"></button>
-                <button class="srv-nav-dot" data-srv-target="2" aria-label="Social Content"></button>
-                <button class="srv-nav-dot" data-srv-target="3" aria-label="Creative Direction"></button>
-            </nav>
-
-        </div>{{-- /.srv-stage --}}
-
+        </div>{{-- /.services-inner --}}
     </section>
 
 
@@ -405,7 +451,7 @@
 
             <div class="tst-grid">
 
-                <div class="tst-card" data-tst-reveal data-tst-delay="0">
+                <div class="tst-card" data-tst-reveal data-tst-delay="0" data-tst-index="0">
                     <span class="tst-c tst-c-tl" aria-hidden="true"></span>
                     <span class="tst-c tst-c-tr" aria-hidden="true"></span>
                     <span class="tst-c tst-c-bl" aria-hidden="true"></span>
@@ -419,7 +465,7 @@
                     </div>
                 </div>
 
-                <div class="tst-card" data-tst-reveal data-tst-delay="0.12">
+                <div class="tst-card" data-tst-reveal data-tst-delay="0.12" data-tst-index="1">
                     <span class="tst-c tst-c-tl" aria-hidden="true"></span>
                     <span class="tst-c tst-c-tr" aria-hidden="true"></span>
                     <span class="tst-c tst-c-bl" aria-hidden="true"></span>
@@ -433,7 +479,7 @@
                     </div>
                 </div>
 
-                <div class="tst-card" data-tst-reveal data-tst-delay="0.24">
+                <div class="tst-card" data-tst-reveal data-tst-delay="0.24" data-tst-index="2">
                     <span class="tst-c tst-c-tl" aria-hidden="true"></span>
                     <span class="tst-c tst-c-tr" aria-hidden="true"></span>
                     <span class="tst-c tst-c-bl" aria-hidden="true"></span>
@@ -441,9 +487,9 @@
                     <div class="tst-mark" aria-hidden="true">"</div>
                     <p class="tst-quote">Odanys has an eye for detail that truly sets him apart. From the first conversation to final delivery, every step felt intentional. The result was pure cinema — exactly what our brand needed.</p>
                     <div class="tst-meta">
-                        <span class="tst-name">Client Name</span>
+                        <span class="tst-name">Momo Tattoo Studio</span>
                         <span class="tst-sep" aria-hidden="true">—</span>
-                        <span class="tst-role">Brand &middot; Creative Direction</span>
+                        <span class="tst-role">Brand &middot; Commercial Ad</span>
                     </div>
                 </div>
 
@@ -469,7 +515,7 @@
                     <div class="contact-details">
                         <div class="contact-detail-item">
                             <span class="contact-detail-label">Email</span>
-                            <span class="contact-detail-value">odanysj.cruz@gmail.com</span>
+                            <span class="contact-detail-value">hello@odanysmedia.com</span>
                         </div>
                         <div class="contact-detail-item">
                             <span class="contact-detail-label">Based In</span>

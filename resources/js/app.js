@@ -165,71 +165,65 @@ if (filmParallaxWraps.length) {
     updateFilmParallax();
 }
 
-// Services: scroll-driven cinematic horizontal accordion
-const srvSection = document.querySelector('#services');
-if (srvSection) {
-    const srvPanels = Array.from(srvSection.querySelectorAll('.srv-panel'));
-    const srvDots   = Array.from(srvSection.querySelectorAll('.srv-nav-dot'));
-    let srvActive   = 0;
-    let srvRaf      = false;
+// Services: split-screen tab switcher
+const srvTabsEl = document.querySelector('.srv-tabs');
+if (srvTabsEl) {
+    const tabs  = Array.from(srvTabsEl.querySelectorAll('.srv-tab'));
+    const panes = Array.from(document.querySelectorAll('.srv-pane'));
 
-    const setSrvActive = (index) => {
-        if (index === srvActive && srvPanels[index]?.classList.contains('is-active')) return;
-        srvActive = index;
-        srvPanels.forEach((p, i) => p.classList.toggle('is-active', i === index));
-        srvDots.forEach((d, i)  => d.classList.toggle('is-active', i === index));
+    const activateTab = (index) => {
+        tabs.forEach((t, i) => {
+            t.classList.toggle('is-active', i === index);
+            t.setAttribute('aria-selected', String(i === index));
+        });
+        panes.forEach((p, i) => {
+            p.classList.toggle('is-active', i === index);
+        });
     };
 
-    const isDesktop = () => window.innerWidth >= 992;
-
-    // Slot size = total sticky scroll range divided by number of transitions (panels - 1)
-    const getSrvSlotH = () =>
-        (srvSection.offsetHeight - window.innerHeight) / (srvPanels.length - 1);
-
-    const onSrvScroll = () => {
-        if (!isDesktop()) return;
-        const rect     = srvSection.getBoundingClientRect();
-        const scrolled = Math.max(0, -rect.top);
-        const slotH    = getSrvSlotH();
-        const index    = Math.min(srvPanels.length - 1, Math.floor(scrolled / slotH));
-        setSrvActive(index);
-
-        // Parallax on the active panel background
-        const activeBg = srvPanels[srvActive]?.querySelector('.srv-panel-bg');
-        if (activeBg) {
-            const totalScroll = slotH * (srvPanels.length - 1);
-            const progress    = totalScroll > 0 ? scrolled / totalScroll : 0;
-            activeBg.style.transform = `translateY(${(progress - 0.5) * 48}px)`;
-        }
-    };
-
-    // Nav dot clicks — scroll to the corresponding slot on desktop, expand on mobile
-    srvDots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-            if (!isDesktop()) { setSrvActive(i); return; }
-            const sectionTop = srvSection.getBoundingClientRect().top + window.scrollY;
-            window.scrollTo({ top: sectionTop + i * getSrvSlotH(), behavior: 'smooth' });
-        });
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activateTab(i));
     });
-
-    // Mobile: tap any panel to expand it
-    srvPanels.forEach(panel => {
-        panel.addEventListener('click', () => {
-            if (isDesktop()) return;
-            setSrvActive(parseInt(panel.dataset.srvIndex) || 0);
-        });
-    });
-
-    // Throttled scroll handler
-    window.addEventListener('scroll', () => {
-        if (srvRaf || !isDesktop()) return;
-        srvRaf = true;
-        requestAnimationFrame(() => { onSrvScroll(); srvRaf = false; });
-    }, { passive: true });
-
-    setSrvActive(0);
-    onSrvScroll();
 }
+
+// Services: photo carousel inside each pane
+document.querySelectorAll('.srv-pane-media').forEach(media => {
+    const slides  = Array.from(media.querySelectorAll('.srv-slide'));
+    const dotsEl  = media.querySelector('.srv-car-dots');
+    const prevBtn = media.querySelector('.srv-car-btn--prev');
+    const nextBtn = media.querySelector('.srv-car-btn--next');
+
+    // Hide controls when 0 or 1 slides
+    if (slides.length <= 1) {
+        prevBtn?.classList.add('is-hidden');
+        nextBtn?.classList.add('is-hidden');
+        dotsEl?.classList.add('is-hidden');
+        return;
+    }
+
+    let current = 0;
+
+    // Build dots to match slide count
+    if (dotsEl) {
+        dotsEl.innerHTML = slides.map((_, i) =>
+            `<button class="srv-car-dot${i === 0 ? ' is-active' : ''}" aria-label="Photo ${i + 1}"></button>`
+        ).join('');
+    }
+
+    const dots = Array.from(dotsEl?.querySelectorAll('.srv-car-dot') ?? []);
+
+    const goTo = (index) => {
+        slides[current].classList.remove('is-active');
+        dots[current]?.classList.remove('is-active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current]?.classList.add('is-active');
+    };
+
+    prevBtn?.addEventListener('click', () => goTo(current - 1));
+    nextBtn?.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+});
 
 // Brands section: reveal header on scroll into view
 const brandsSection = document.querySelector('.brands-section');
