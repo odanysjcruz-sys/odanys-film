@@ -159,14 +159,10 @@
 
             {{-- ① Featured film frame (21:9 hero) --}}
             <div class="film-wrap mt-5" data-film-parallax="0.25">
-                <article class="film-frame film-frame--featured" data-film-reveal="0">
+                <article class="film-frame film-frame--featured" data-film-reveal="0" data-vimeo="1203313171">
                     <div class="film-img">
-                        {{-- Gradient shows until hover; video fades in on hover --}}
                         <div class="film-img-bg"
                              style="background: linear-gradient(160deg, #12061a 0%, #08040c 45%, #0a0810 100%);">
-                            <video class="film-video" muted loop playsinline preload="none">
-                                <source src="/videos/me-llamas-yuyo.mp4" type="video/mp4">
-                            </video>
                         </div>
                     </div>
                     <span class="film-c film-c-tl" aria-hidden="true"></span>
@@ -192,13 +188,10 @@
 
                 <div class="col-lg-6">
                     <div class="film-wrap" data-film-parallax="0.18">
-                        <article class="film-frame film-frame--regular" data-film-reveal="0.14">
+                        <article class="film-frame film-frame--regular" data-film-reveal="0.14" data-vimeo="1203313238">
                             <div class="film-img">
                                 <div class="film-img-bg"
                                      style="background: linear-gradient(160deg, #0a0e1a 0%, #060810 45%, #0c0a18 100%);">
-                                    <video class="film-video" muted loop playsinline preload="none">
-                                        <source src="/videos/pacto-makleen.mp4" type="video/mp4">
-                                    </video>
                                 </div>
                             </div>
                             <span class="film-c film-c-tl" aria-hidden="true"></span>
@@ -635,6 +628,22 @@
             </div>{{-- /.row --}}
         </div>{{-- /.container --}}
     </section>
+
+
+{{-- Vimeo lightbox modal --}}
+<div id="vimeo-modal" class="vimeo-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="vimeo-modal-backdrop"></div>
+    <button class="vimeo-modal-close" aria-label="Close video">&times;</button>
+    <div class="vimeo-modal-frame">
+        <div class="vimeo-modal-ratio">
+            <iframe id="vimeo-iframe"
+                    src=""
+                    frameborder="0"
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 
 @endsection
 

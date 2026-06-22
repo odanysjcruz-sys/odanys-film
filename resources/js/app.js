@@ -89,6 +89,53 @@ if (filmRevealFrames.length) {
     filmRevealFrames.forEach(el => revealObs.observe(el));
 }
 
+// Work section: Vimeo thumbnail fetch for cards linked to Vimeo
+document.querySelectorAll('.film-frame[data-vimeo]').forEach(async frame => {
+    const bg = frame.querySelector('.film-img-bg');
+    if (!bg) return;
+    try {
+        const res  = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${frame.dataset.vimeo}`);
+        const data = await res.json();
+        if (data.thumbnail_url) {
+            const thumbUrl = data.thumbnail_url.replace(/_\d+x\d+(\.\w+)$/, '_1280$1');
+            bg.style.backgroundImage    = `url("${thumbUrl}")`;
+            bg.style.backgroundSize     = 'cover';
+            bg.style.backgroundPosition = 'center';
+        }
+    } catch (_) { /* silently skip on network or CORS error */ }
+});
+
+// Work section: Vimeo lightbox — open/close modal with embedded player
+const vimeoModal  = document.getElementById('vimeo-modal');
+const vimeoIframe = document.getElementById('vimeo-iframe');
+
+if (vimeoModal && vimeoIframe) {
+    const openModal = (vimeoId) => {
+        vimeoIframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&color=ffffff&title=0&byline=0&portrait=0`;
+        vimeoModal.classList.add('is-open');
+        vimeoModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+    };
+
+    const closeModal = () => {
+        vimeoIframe.src = '';
+        vimeoModal.classList.remove('is-open');
+        vimeoModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+    };
+
+    document.querySelectorAll('.film-frame[data-vimeo]').forEach(frame => {
+        frame.addEventListener('click', () => openModal(frame.dataset.vimeo));
+    });
+
+    vimeoModal.querySelector('.vimeo-modal-backdrop').addEventListener('click', closeModal);
+    vimeoModal.querySelector('.vimeo-modal-close').addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && vimeoModal.classList.contains('is-open')) closeModal();
+    });
+}
+
 // Work section: hover-to-play video previews with auto-thumbnail
 document.querySelectorAll('.film-frame').forEach(frame => {
     const video  = frame.querySelector('.film-video');
