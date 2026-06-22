@@ -161,8 +161,11 @@
             <div class="film-wrap mt-5" data-film-parallax="0.25">
                 <article class="film-frame film-frame--featured" data-film-reveal="0" data-vimeo="1203313171">
                     <div class="film-img">
-                        <div class="film-img-bg"
-                             style="background: linear-gradient(160deg, #12061a 0%, #08040c 45%, #0a0810 100%);">
+                        <div class="film-img-bg">
+                            <img class="film-poster"
+                                 src="/images/poster-me-llamas.png"
+                                 alt=""
+                                 loading="lazy">
                         </div>
                     </div>
                     <span class="film-c film-c-tl" aria-hidden="true"></span>
@@ -190,8 +193,11 @@
                     <div class="film-wrap" data-film-parallax="0.18">
                         <article class="film-frame film-frame--regular" data-film-reveal="0.14" data-vimeo="1203313238">
                             <div class="film-img">
-                                <div class="film-img-bg"
-                                     style="background: linear-gradient(160deg, #0a0e1a 0%, #060810 45%, #0c0a18 100%);">
+                                <div class="film-img-bg">
+                                    <img class="film-poster"
+                                         src="/images/poster-pacto.png"
+                                         alt=""
+                                         loading="lazy">
                                 </div>
                             </div>
                             <span class="film-c film-c-tl" aria-hidden="true"></span>
