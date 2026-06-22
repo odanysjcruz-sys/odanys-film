@@ -1,0 +1,18 @@
+---
+deployment:
+  tasks:
+    # Install/update PHP dependencies (skips dev packages)
+    - composer install --no-dev --optimize-autoloader
+
+    # Sync compiled Vite assets to the public web root
+    - /bin/cp -R public/build ~/public_html/build
+
+    # Sync other public assets (images, htaccess, favicon, robots)
+    - /bin/cp -R public/images ~/public_html/images
+    - /bin/cp public/.htaccess ~/public_html/.htaccess
+    - /bin/cp public/favicon.ico ~/public_html/favicon.ico
+    - /bin/cp public/robots.txt ~/public_html/robots.txt
+
+    # Rebuild Laravel's config/route/view caches for production speed
+    - php artisan optimize:clear
+    - php artisan optimize
