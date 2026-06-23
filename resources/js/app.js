@@ -1,20 +1,5 @@
 import 'bootstrap';
 
-// Mid-sections: scroll-driven parallax on the gradient background
-const midBg = document.querySelector('.mid-sections-bg');
-const midSections = document.querySelector('.mid-sections');
-if (midBg && midSections) {
-    const onMidParallax = () => {
-        const rect  = midSections.getBoundingClientRect();
-        const total = midSections.offsetHeight + window.innerHeight;
-        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / total));
-        // Shift the bg slightly opposite to scroll direction (parallax depth)
-        midBg.style.setProperty('--parallax-y', `${(progress - 0.5) * -12}%`);
-    };
-    window.addEventListener('scroll', onMidParallax, { passive: true });
-    onMidParallax();
-}
-
 // Navbar: glass on scroll + active section tracking + mobile toggle
 const siteNav = document.getElementById('siteNav');
 

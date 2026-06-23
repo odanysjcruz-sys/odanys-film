@@ -114,17 +114,6 @@
     </section>
 
 
-    {{-- ── Mid-sections unified background wrapper ──────── --}}
-    <div class="mid-sections" aria-hidden="false">
-    <div class="mid-sections-bg" aria-hidden="true">
-        <div class="mid-blob mid-blob-1"></div>
-        <div class="mid-blob mid-blob-2"></div>
-        <div class="mid-blob mid-blob-3"></div>
-        <div class="mid-blob mid-blob-4"></div>
-        <div class="mid-blob mid-blob-5"></div>
-        <div class="mid-blob mid-blob-6"></div>
-    </div>
-
     {{-- ── Brands & Projects ───────────────────────────── --}}
     <section class="brands-section">
 
@@ -452,8 +441,6 @@
 
         </div>{{-- /.services-inner --}}
     </section>
-
-    </div>{{-- /.mid-sections --}}
 
 
     {{-- ── Testimonials ─────────────────────────────────── --}}
