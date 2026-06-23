@@ -163,7 +163,7 @@
                     <div class="film-img">
                         <div class="film-img-bg">
                             <img class="film-poster"
-                                 src="/images/poster-me-llamas.png"
+                                 src="/images/poster-me-llamas.jpg"
                                  alt=""
                                  loading="lazy">
                         </div>
@@ -195,7 +195,7 @@
                             <div class="film-img">
                                 <div class="film-img-bg">
                                     <img class="film-poster"
-                                         src="/images/poster-pacto.png"
+                                         src="/images/poster-pacto.jpg"
                                          alt=""
                                          loading="lazy">
                                 </div>
