@@ -5,13 +5,13 @@ deployment:
     - composer install --no-dev --optimize-autoloader
 
     # Sync compiled Vite assets to the public web root
-    - /bin/cp -R public/build ~/public_html/build
+    - mkdir -p ~/public_html/build && /bin/cp -Rf public/build/. ~/public_html/build/
 
     # Sync other public assets (images, htaccess, favicon, robots)
-    - /bin/cp -R public/images ~/public_html/images
+    - mkdir -p ~/public_html/images && /bin/cp -Rf public/images/. ~/public_html/images/
     - /bin/cp public/.htaccess ~/public_html/.htaccess
-    - /bin/cp public/favicon.ico ~/public_html/favicon.ico
-    - /bin/cp public/robots.txt ~/public_html/robots.txt
+    - /bin/cp public/favicon.ico ~/public_html/favicon.ico 2>/dev/null || true
+    - /bin/cp public/robots.txt ~/public_html/robots.txt 2>/dev/null || true
 
     # Rebuild Laravel's config/route/view caches for production speed
     - php artisan optimize:clear
