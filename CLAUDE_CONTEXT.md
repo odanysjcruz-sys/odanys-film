@@ -89,6 +89,24 @@ odanys-film/
 - Workflow: `npm run build` → `git push` → cPanel Git Version Control → "Deploy HEAD Commit"
 - `public/build/` is committed to git because Namecheap has no Node.js to build assets server-side
 
+### Server directory layout (CRITICAL — learned 2026-06-23)
+```
+~/laravel/          ← Laravel app (PHP, blade views, vendor, config). NOT a git repo.
+~/laravel-git/      ← cPanel Git Version Control clone of GitHub repo (actual git repo)
+~/public_html/      ← Web root. index.php bootstraps from ~/laravel/
+~/public_html/build/       ← Vite compiled CSS/JS (copied here by .cpanel.yml)
+~/public_html/images/      ← Static images (copied here by .cpanel.yml)
+```
+- `~/home/` is a cPanel symlink to `/home/` — `find` traverses it and shows doubled paths like
+  `/home/odanzuii/home/odanzuii/laravel-git/.git`. The real path is `~/laravel-git/`.
+- `git` binary is at `/usr/bin/git` (NOT `/usr/local/bin/git`)
+- `ls`, `cp` not in default PATH — use `/bin/ls`, `/bin/cp`, `/bin/find`
+
+### What .cpanel.yml updates vs. what it doesn't
+- **DOES update:** `~/public_html/build/` and `~/public_html/images/`
+- **DOES NOT update:** `~/laravel/resources/views/`, `~/laravel/public/build/manifest.json`
+- After any change to blade views or JS/CSS, you must ALSO manually sync `~/laravel/` via File Manager ZIP upload (see Emergency deploy below)
+
 ### Laravel app above web root
 - Full app lives at `~/laravel/` on the server; `public/` contents go to `~/public_html/`
 - `deploy/public_html_index.php` is the modified entry point that points to `~/laravel/`
@@ -132,7 +150,7 @@ odanys-film/
 
 | Platform | Navbar | Footer |
 |----------|--------|--------|
-| Instagram | `href="#"` placeholder | `href="#"` placeholder |
+| Instagram | https://www.instagram.com/odanys_media/ | https://www.instagram.com/odanys_media/ |
 | LinkedIn | `href="#"` placeholder | `href="#"` placeholder |
 | Vimeo | https://vimeo.com/user260222135 | https://vimeo.com/user260222135 |
 | YouTube | Commented out (no channel yet) | Commented out (no channel yet) |
@@ -192,15 +210,35 @@ php artisan cache:clear
 # 1. Build
 npm run build
 
-# 2. Commit (include public/build — it's tracked)
+# 2. Commit + push
 git add -A
 git commit -m "describe what changed"
-
-# 3. Push to GitHub
 git push origin master
-
-# 4. In browser: cPanel → Git Version Control → Deploy HEAD Commit
 ```
+
+Then upload **two ZIPs** via cPanel File Manager (see "Emergency manual deploy" below).
+
+> **Note:** cPanel Git Version Control "Update from Remote" does NOT work — the server
+> can't authenticate with the private GitHub repo via HTTPS. Always use the ZIP method.
+> The .cpanel.yml is kept in sync in git but the git deploy path is currently broken.
+
+### Emergency manual deploy (when blade/CSS/JS changes don't appear on server)
+The cPanel git deploy does NOT update `~/laravel/` (the running app). If views or assets look stale:
+
+**Two ZIPs to create and upload via File Manager:**
+
+ZIP 1 → extract to `/home/odanzuii/laravel` (updates blade templates + manifest):
+- `public/build/manifest.json`
+- `public/build/assets/app-*.js`
+- `public/build/assets/app-*.css`
+- `resources/views/**`
+
+ZIP 2 → extract to `/home/odanzuii/public_html` (makes CSS/JS accessible to browser):
+- `build/assets/app-*.js`
+- `build/assets/app-*.css`
+- `build/manifest.json`
+
+Then run in Terminal: `php /home/odanzuii/laravel/artisan optimize:clear`
 
 ### Environment — local `.env` key values
 ```
@@ -236,6 +274,16 @@ npm run build
 - Set up cPanel Git Version Control — site is live at https://odanysmedia.com
 - Created `.cpanel.yml` for automated post-deploy tasks
 - Un-excluded `public/build` from `.gitignore` (Namecheap has no Node.js)
+
+### Session — 2026-06-23 (production deploy fix)
+- Diagnosed why WebP images, Vimeo lightbox, and updated CSS weren't showing in production
+- Root cause: cPanel git deploy updates ~/public_html/ but never ~/laravel/ (the running app)
+- Found git binary at /usr/bin/git (not /usr/local/bin/git)
+- Found cPanel git repo at ~/laravel-git/ (find shows doubled path due to ~/home/ symlink)
+- Fixed by uploading two ZIPs via File Manager:
+  1. Code ZIP → ~/laravel/ (views + manifest): updated blade templates and build manifest
+  2. Build ZIP → ~/public_html/ (CSS + JS): made assets accessible from web root
+- Site now fully working: hero, about, portfolio (Vimeo lightbox + WebP posters), services (WebP)
 
 ### Session — 2026-06-23 (image optimization)
 - Audited all 29 images in public/images/ (total: 425 MB)
