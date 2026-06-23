@@ -137,6 +137,9 @@
                 <div class="brands-logo-wrap">
                     <img src="/images/brand-nk.webp" alt="NK" class="brands-logo" loading="lazy">
                 </div>
+                <div class="brands-logo-wrap">
+                    <img src="/images/brand-new-era.webp" alt="New Era" class="brands-logo" loading="lazy">
+                </div>
             </div>
         </div>
 
