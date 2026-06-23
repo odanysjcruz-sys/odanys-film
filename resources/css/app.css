@@ -1134,6 +1134,14 @@ body {
     color: rgba(255, 255, 255, 0.25);
 }
 
+@media (max-width: 575px) {
+    .film-runtime { display: none; }
+    .film-meta-top { left: 1rem; right: 1rem; top: 1rem; }
+    .film-frame--featured .film-content { padding: 1.5rem 1rem; }
+    .film-frame--featured .film-title { font-size: clamp(1.1rem, 4vw, 1.25rem); }
+    .film-content { padding: 1.25rem 1rem; }
+}
+
 /* Gold corner markers */
 .film-c {
     position: absolute;
@@ -1183,6 +1191,10 @@ body {
 .film-frame--featured .film-title {
     font-size: clamp(1.7rem, 3.2vw, 2.6rem);
     margin-bottom: 0.7rem;
+}
+
+@media (max-width: 575px) {
+    .film-frame--featured .film-title { font-size: clamp(1.1rem, 4vw, 1.25rem); }
 }
 
 .film-frame:hover .film-title { transform: translateY(0); }
