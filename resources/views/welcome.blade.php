@@ -93,11 +93,10 @@
                     <div class="section-divider"></div>
 
                     <p class="about-body">
-                        I'm a Dominican filmmaker and creative director driven by a relentless
-                        pursuit of cinematic excellence. Every project I take on, from high-energy
-                        music videos to polished brand films and social content, is treated as a
-                        deliberate narrative experience. Raw authenticity meets premium aesthetics,
-                        producing imagery that resonates long after the screen goes dark.
+                        I'm a Dominican filmmaker and creative director focused on creating cinematic
+                        work that feels intentional and emotionally driven. From commercials to music
+                        videos and branded content, I combine strong visuals with storytelling to
+                        craft films that people connect with and remember.
                     </p>
 
                     <ul class="about-tags">
