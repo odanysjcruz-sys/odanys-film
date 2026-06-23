@@ -13,6 +13,10 @@ deployment:
     - /bin/cp public/favicon.ico ~/public_html/favicon.ico 2>/dev/null || true
     - /bin/cp public/robots.txt ~/public_html/robots.txt 2>/dev/null || true
 
+    # Sync views and build manifest to the running Laravel app
+    - /bin/cp -Rf resources/views/. ~/laravel/resources/views/
+    - mkdir -p ~/laravel/public/build && /bin/cp -Rf public/build/. ~/laravel/public/build/
+
     # Rebuild Laravel's config/route/view caches for production speed
-    - php artisan optimize:clear
-    - php artisan optimize
+    - php /home/odanzuii/laravel/artisan optimize:clear
+    - php /home/odanzuii/laravel/artisan optimize
