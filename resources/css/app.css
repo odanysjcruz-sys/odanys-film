@@ -1020,6 +1020,24 @@ body {
     text-align: center;
 }
 
+@keyframes brandMarquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 767px) {
+    .brands-track {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        width: max-content;
+        animation: brandMarquee 14s linear infinite;
+    }
+    .brands-logo-wrap { padding: 0 2rem; }
+    .brands-logo { height: 72px; }
+    .brands-section { padding: 3rem 0 1rem; }
+    .work-section { padding: 2rem 0 3rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .brands-track { animation: none !important; }
     .brands-header .section-eyebrow,

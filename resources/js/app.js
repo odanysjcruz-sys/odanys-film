@@ -299,6 +299,18 @@ if (brandsItems.length) {
     brandsItems.forEach(el => brdItemObs.observe(el));
 }
 
+// Brands: mobile marquee — duplicate logos for seamless loop
+if (window.innerWidth <= 767) {
+    const track = document.querySelector('.brands-track');
+    if (track) {
+        [...track.children].forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            track.appendChild(clone);
+        });
+    }
+}
+
 // Testimonials: scroll reveal with staggered delay
 const tstCards = document.querySelectorAll('[data-tst-reveal]');
 if (tstCards.length) {

@@ -137,6 +137,9 @@
                 <div class="brands-logo-wrap">
                     <img src="/images/brand-nk.webp" alt="NK" class="brands-logo" loading="lazy">
                 </div>
+                <div class="brands-logo-wrap">
+                    <img src="/images/brand-new-era.webp" alt="New Era" class="brands-logo" loading="lazy">
+                </div>
             </div>
         </div>
 
@@ -229,8 +232,14 @@
                     <div class="film-wrap" data-film-parallax="0.14">
                         <article class="film-frame film-frame--regular" data-film-reveal="0.28">
                             <div class="film-img">
-                                <div class="film-img-bg"
-                                     style="background: linear-gradient(160deg, #080618 0%, #050410 45%, #0a0a1a 100%);"></div>
+                                <div class="film-img-bg" style="inset: 0;">
+                                    <img class="film-poster"
+                                         src="/images/poster-raices.webp"
+                                         srcset="/images/poster-raices-md.webp 960w, /images/poster-raices.webp 1920w"
+                                         sizes="(max-width: 992px) 100vw, 50vw"
+                                         alt=""
+                                         loading="lazy">
+                                </div>
                             </div>
                             <span class="film-c film-c-tl" aria-hidden="true"></span>
                             <span class="film-c film-c-tr" aria-hidden="true"></span>
@@ -240,12 +249,12 @@
                             <div class="film-meta-top" aria-hidden="true">
                                 <span class="film-num">A-03</span>
                                 <span class="film-cat-badge">Brand Film</span>
-                                <span class="film-runtime">6:08</span>
+                                <span class="film-runtime">New Era</span>
                             </div>
                             <div class="film-content">
-                                <h3 class="film-title">Ra&iacute;ces</h3>
-                                <p class="film-desc">A cultural brand film celebrating Dominican heritage and visual identity.</p>
-                                <span class="film-cta">View Project <span class="btn-arrow" aria-hidden="true">→</span></span>
+                                <h3 class="film-title">Built Different</h3>
+                                <p class="film-desc">Brand film for New Era. Identity, culture, and craft — built different.</p>
+                                <span class="film-cta">Coming Soon <span class="btn-arrow" aria-hidden="true">→</span></span>
                             </div>
                         </article>
                     </div>
