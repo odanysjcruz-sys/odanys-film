@@ -130,9 +130,11 @@ odanys-film/
 - Tailwind is installed but unused — all design is handwritten in `resources/css/app.css`
 - Bootstrap is used for grid (`container`, `row`, `col-*`) and a few utilities only
 
-### Mail: MAIL_SCHEME=ssl (not MAIL_ENCRYPTION)
-- Laravel 13 reads `MAIL_SCHEME`; the old `MAIL_ENCRYPTION` key is silently ignored
-- Port 465 with SSL via cPanel email account `hello@odanysmedia.com`
+### Mail: working SMTP config (confirmed 2026-06-23)
+- `MAIL_HOST=server227.web-hosting.com` — use the actual server hostname, NOT `mail.odanysmedia.com` (cert mismatch: Namecheap's cert is `*.web-hosting.com`)
+- `MAIL_PORT=465`, `MAIL_SCHEME=smtps` — Laravel 13 uses `smtps` not `ssl`; `MAIL_ENCRYPTION` is silently ignored
+- `MAIL_USERNAME=hello@odanysmedia.com`, `MAIL_TO_ADDRESS=hello@odanysmedia.com`
+- Contact form submissions arrive at `hello@odanysmedia.com` ✓
 
 ---
 
