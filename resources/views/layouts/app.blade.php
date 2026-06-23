@@ -7,8 +7,6 @@
     <link rel="icon" type="image/png" href="/images/odanys_logo_final.png">
     <link rel="apple-touch-icon" href="/images/odanys_logo_final.png">
     <link rel="preload" as="image" href="/images/hero.webp" fetchpriority="high">
-    {{-- Anti-flash: apply saved theme before CSS paints --}}
-    <script>(function(){var t=localStorage.getItem('om-theme')||'dark';document.documentElement.dataset.theme=t;})();</script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>

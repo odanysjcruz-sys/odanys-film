@@ -1,16 +1,5 @@
 import 'bootstrap';
 
-// Theme toggle — dark / light
-const themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-    themeToggle.addEventListener('click', () => {
-        const current = document.documentElement.dataset.theme || 'dark';
-        const next    = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.dataset.theme = next;
-        localStorage.setItem('om-theme', next);
-    });
-}
-
 // Navbar: glass on scroll + active section tracking + mobile toggle
 const siteNav = document.getElementById('siteNav');
 
