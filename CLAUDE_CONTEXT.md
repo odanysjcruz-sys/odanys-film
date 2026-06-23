@@ -237,7 +237,23 @@ npm run build
 - Created `.cpanel.yml` for automated post-deploy tasks
 - Un-excluded `public/build` from `.gitignore` (Namecheap has no Node.js)
 
-### Session — 2026-06-23
+### Session — 2026-06-23 (image optimization)
+- Audited all 29 images in public/images/ (total: 425 MB)
+- Identified 6 unreferenced images (backed up, left in place): about.png, brand-nike.jpg, logo-odanys.png, srv-brand-films.jpg, srv-creative-direction.png, srv-music-video.png
+- Installed sharp (npm dev dependency) for WebP conversion
+- Converted all 25 referenced images to WebP: 371 MB → 1.9 MB (−99.5%)
+- Resized service images from 8000/4500/2880px → 1440px max (appropriate for display area)
+- Resized brand logos from 1024–1536px → 256px height (2× retina for 128px display)
+- Resized site logo from 4500×4500 → 200×200 WebP + 192×192 PNG (for favicon)
+- Created srcset medium variants (960w) for both portfolio poster images
+- Added `loading="lazy"` to: about photo, all brand logos, footer logo
+- Added `fetchpriority="high"` + `loading="eager"` to navbar logo (above fold)
+- Added `<link rel="preload" fetchpriority="high">` for hero image in layout head
+- Updated hero CSS background: hero.png → hero.webp
+- All originals backed up to public/original-images-backup/
+- Added scripts/optimize-images.js for future re-optimization runs
+
+### Session — 2026-06-23 (earlier)
 - Replaced self-hosted MP4 video placeholders with Vimeo lightbox embeds (A-01, A-02)
 - Lightbox: dark overlay, Vimeo iframe autoplay, closes on backdrop/Escape/✕
 - Play button circle animates on hover for Vimeo-linked cards
