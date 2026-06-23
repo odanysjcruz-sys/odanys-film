@@ -7,7 +7,7 @@
             {{-- Brand --}}
             <div class="footer-brand">
                 <a href="#" class="footer-logo-link" aria-label="Odanys Media">
-                    <img src="/images/odanys_logo_final.png" alt="Odanys Media" class="footer-logo-img">
+                    <img src="/images/odanys_logo_final.webp" alt="Odanys Media" class="footer-logo-img" loading="lazy">
                 </a>
                 <p class="footer-tagline">
                     Filmmaker&nbsp;&bull;&nbsp;Creative Director<br>

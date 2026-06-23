@@ -63,9 +63,11 @@
                         <span class="fc fc-bl" aria-hidden="true"></span>
                         <span class="fc fc-br" aria-hidden="true"></span>
                         <div class="about-img-inner">
-                            <img src="/images/aboutme.jpeg"
+                            <img src="/images/aboutme.webp"
                                  alt="Odanys De La Cruz, Filmmaker"
-                                 class="about-photo">
+                                 class="about-photo"
+                                 loading="lazy"
+                                 sizes="(max-width: 768px) 100vw, (max-width: 992px) 50vw, 41vw">
                             <div class="monitor-grain" aria-hidden="true"></div>
                             <div class="monitor-scan" aria-hidden="true"></div>
                             <div class="monitor-ui" aria-hidden="true">
@@ -124,16 +126,16 @@
         <div class="brands-ticker">
             <div class="brands-track">
                 <div class="brands-logo-wrap">
-                    <img src="/images/brand-groom-harry.png" alt="Groom by Harry" class="brands-logo">
+                    <img src="/images/brand-groom-harry.webp" alt="Groom by Harry" class="brands-logo" loading="lazy">
                 </div>
                 <div class="brands-logo-wrap">
-                    <img src="/images/brand-merkaba.png" alt="The Merkaba Method" class="brands-logo">
+                    <img src="/images/brand-merkaba.webp" alt="The Merkaba Method" class="brands-logo" loading="lazy">
                 </div>
                 <div class="brands-logo-wrap">
-                    <img src="/images/brand-momo.png" alt="Momo Tattoo Studio" class="brands-logo">
+                    <img src="/images/brand-momo.webp" alt="Momo Tattoo Studio" class="brands-logo" loading="lazy">
                 </div>
                 <div class="brands-logo-wrap">
-                    <img src="/images/brand-nk.png" alt="NK" class="brands-logo">
+                    <img src="/images/brand-nk.webp" alt="NK" class="brands-logo" loading="lazy">
                 </div>
             </div>
         </div>
@@ -163,7 +165,9 @@
                     <div class="film-img">
                         <div class="film-img-bg">
                             <img class="film-poster"
-                                 src="/images/poster-me-llamas.jpg"
+                                 src="/images/poster-me-llamas.webp"
+                                 srcset="/images/poster-me-llamas-md.webp 960w, /images/poster-me-llamas.webp 1920w"
+                                 sizes="(max-width: 992px) 100vw, 100vw"
                                  alt=""
                                  loading="lazy">
                         </div>
@@ -195,7 +199,9 @@
                             <div class="film-img">
                                 <div class="film-img-bg">
                                     <img class="film-poster"
-                                         src="/images/poster-pacto.jpg"
+                                         src="/images/poster-pacto.webp"
+                                         srcset="/images/poster-pacto-md.webp 960w, /images/poster-pacto.webp 1920w"
+                                         sizes="(max-width: 992px) 100vw, 50vw"
                                          alt=""
                                          loading="lazy">
                                 </div>
@@ -293,19 +299,19 @@
                     <div class="srv-pane-media">
                         <div class="srv-carousel">
                             <div class="srv-slide is-active">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-1.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-1.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-2.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-2.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-3.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-3.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-4.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-4.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-5.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-cd-5.webp');"></div>
                             </div>
                         </div>
                         <div class="srv-pane-overlay" aria-hidden="true"></div>
@@ -333,22 +339,22 @@
                     <div class="srv-pane-media">
                         <div class="srv-carousel">
                             <div class="srv-slide is-active">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-1.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-1.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-2.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-2.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-3.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-3.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-4.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-4.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-5.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-5.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-6.png');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-mv-6.webp');"></div>
                             </div>
                         </div>
                         <div class="srv-pane-overlay" aria-hidden="true"></div>
@@ -376,13 +382,13 @@
                     <div class="srv-pane-media srv-pane-media--square">
                         <div class="srv-carousel">
                             <div class="srv-slide is-active">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-1.jpg');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-1.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-2.jpg');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-2.webp');"></div>
                             </div>
                             <div class="srv-slide">
-                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-3.jpg');"></div>
+                                <div class="srv-slide-bg" style="background-image: url('/images/srv-bf-3.webp');"></div>
                             </div>
                         </div>
                         <div class="srv-pane-overlay" aria-hidden="true"></div>

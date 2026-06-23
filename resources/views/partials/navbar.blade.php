@@ -3,7 +3,7 @@
 
         {{-- Logo --}}
         <a href="#" class="site-nav-logo" aria-label="Odanys Media — home">
-            <img src="/images/odanys_logo_final.png" alt="Odanys Media" class="site-nav-logo-img">
+            <img src="/images/odanys_logo_final.webp" alt="Odanys Media" class="site-nav-logo-img" loading="eager" fetchpriority="high">
         </a>
 
         {{-- Center nav links --}}

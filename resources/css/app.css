@@ -264,7 +264,7 @@ body {
     z-index: 0;
     will-change: transform;
     animation: heroBgZoom 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-    background-image: url('/images/hero.png');
+    background-image: url('/images/hero.webp');
     background-size: cover;
     background-position: center top;
 }
