@@ -949,12 +949,55 @@ body {
     }
 }
 
+/* ─── Mid-Sections Unified Background ─────────────────── */
+.mid-sections {
+    position: relative;
+    isolation: isolate;
+}
+
+/* Outer: handles scroll parallax via JS CSS variable */
+.mid-sections-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(var(--parallax-y, 0%));
+    will-change: transform;
+}
+
+/* Inner: handles slow ambient drift animation */
+.mid-sections-bg-inner {
+    position: absolute;
+    inset: -12%;
+    background:
+        radial-gradient(ellipse 75% 55% at 12% 22%, rgba(65, 44, 138, 0.38) 0%, transparent 52%),
+        radial-gradient(ellipse 60% 48% at 88% 75%, rgba(44, 26, 108, 0.32) 0%, transparent 50%),
+        radial-gradient(ellipse 55% 40% at 50% 50%, rgba(28, 18, 72, 0.42) 0%, transparent 60%),
+        radial-gradient(ellipse 90% 35% at 30% 90%, rgba(35, 22, 90, 0.28) 0%, transparent 55%),
+        linear-gradient(148deg, #08080d 0%, #0d0b1a 25%, #09090e 52%, #0b0a17 76%, #07070c 100%);
+    animation: midBgDrift 24s ease-in-out infinite alternate;
+    will-change: transform;
+}
+
+@keyframes midBgDrift {
+    0%   { transform: scale(1.04) translate(0%,    0%);    }
+    25%  { transform: scale(1.06) translate(-2%,   1.5%);  }
+    50%  { transform: scale(1.03) translate(2.5%,  -1%);   }
+    75%  { transform: scale(1.07) translate(-1%,   2.5%);  }
+    100% { transform: scale(1.05) translate(1.5%,  -2%);   }
+}
+
+.mid-sections .brands-section,
+.mid-sections .work-section,
+.mid-sections .services-section {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
 /* ─── Brands & Projects (Marquee) ────────────────────── */
 .brands-section {
-    background:
-        radial-gradient(ellipse 120% 80% at 50% -10%, rgba(38, 28, 80, 0.42) 0%, transparent 62%),
-        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(20, 14, 50, 0.3) 0%, transparent 55%),
-        linear-gradient(180deg, #0f0e18 0%, #111118 60%, #0d0d14 100%);
     padding: 6rem 0 5rem;
     overflow: hidden;
 }
@@ -1032,11 +1075,6 @@ body {
 
 /* ─── Work / Portfolio ───────────────────────────────── */
 .work-section {
-    background:
-        radial-gradient(ellipse 160% 70% at 12% 50%, rgba(28, 18, 68, 0.48) 0%, transparent 52%),
-        radial-gradient(ellipse 110% 55% at 88% 40%, rgba(22, 14, 55, 0.35) 0%, transparent 50%),
-        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(15, 10, 40, 0.4) 0%, transparent 55%),
-        linear-gradient(160deg, #0d0d14 0%, #0a0a11 40%, #0d0c16 70%, #0f0e18 100%);
     padding: 7rem 0 8rem;
 }
 
@@ -1384,10 +1422,6 @@ body.modal-open { overflow: hidden; }
 
 /* ─── Services (Split-Screen Tabs) ───────────────────── */
 .services-section {
-    background:
-        radial-gradient(ellipse 120% 80% at 50% 112%, rgba(38, 28, 80, 0.42) 0%, transparent 62%),
-        radial-gradient(ellipse 60% 40% at 15% 0%, rgba(20, 14, 50, 0.3) 0%, transparent 55%),
-        linear-gradient(180deg, #0d0d14 0%, #111118 40%, #0f0e18 100%);
     padding: 7rem 0 8rem;
 }
 
