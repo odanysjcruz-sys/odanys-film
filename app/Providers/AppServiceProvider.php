@@ -13,9 +13,13 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        // Max 5 contact form submissions per IP per hour
         RateLimiter::for('contact', function (Request $request) {
-            return Limit::perHour(5)->by($request->ip());
+            return Limit::perHour(10)->by($request->ip())
+                ->response(function () {
+                    return back()->withErrors([
+                        'email' => 'Too many attempts. Please wait a while before sending another message.',
+                    ]);
+                });
         });
     }
 }
